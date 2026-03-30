@@ -3,7 +3,11 @@ const app = express();
 require('dotenv').config();
 const PORT = process.env.PORT || 8000;
 const ejs = require('ejs');
+const mosgoose = require('mangoose');
+const uri = process.env.MONGO_URI;
+
 const userRoutes = require('./userRoutes');
+
 
 //view engine
 app.set('view engine', 'ejs');
@@ -21,7 +25,7 @@ app.get('/', (req, res) => {
 
 //server setup
 app.listen(PORT, () => {
-    console.log(Server is running on port ${PORT});
+    console.log(`Server is running on port ${PORT}`);
 });
 
 
